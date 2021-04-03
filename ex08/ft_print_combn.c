@@ -6,54 +6,53 @@
 /*   By: soohkim <soohkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 13:10:39 by soohkim           #+#    #+#             */
-/*   Updated: 2021/04/01 05:33:57 by soohkim          ###   ########.fr       */
+/*   Updated: 2021/04/03 13:25:48 by soohkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+int g_i;
+int g_j;
+int g_k;
+char *g_num;
 
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void 
-
 void	ft_print_combn(int n)
 {
+	char *separator;
 
-	int i;
-	int j;
-	int k;
-	num[10];
-
-	i = 0;
-	j = 0;
-	k = n;
-	num[0] = 0;
-	while (i < k)
+	separator = ", ";
+	while (g_i <= n - 1)
 	{
-		while (num[j] <= 10 - k)
+		while (g_j <= 9)
 		{
-			num[j]++;
-			j++;
-			num[j + 1] = num[j] + 1;
+			*(g_num + g_i) = g_j;
+			if (g_i == n - 1)
+			{
+				write(1, g_num, n);
+				write(1, separator, 2);
+				g_j++;
+			}
+			else
+				break ;
 		}
-		k--;
-	}
-
-	char num[n];
-	char separator[2];
-
-	separator[0] = ',';
-	separator[1] = ' ';
-	if (0 <= n && n <= 9)
-	{
-		ft_putchar(48 + n);
-		write(1, &separator, 2);
-	}
-	else
-	{
-		print
+		if (g_j != 9)
+			g_i++;
+		else
+		{
+			while (g_k < n)
+			{
+				g_i -= g_k;
+				g_k++;
+			}
+		}
+		g_j = g_num[g_i - 1] + 1;
+		if (*g_num == (10 - n) && *(g_num + (n - 1)) == 9)
+			break ;
 	}
 }
